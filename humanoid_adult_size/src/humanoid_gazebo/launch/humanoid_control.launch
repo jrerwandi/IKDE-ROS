@@ -1,0 +1,44 @@
+<launch>
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find humanoid_gazebo)/config/humanoid_control.yaml" command="load"/>
+
+  <!-- load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" ns="/humanoid" args="l_hip_yaw_joint_position_controller 
+                                         l_hip_roll_joint_position_controller 
+                                         l_hip_pitch_front_joint_position_controller 
+                                         l_hip_pitch_back_joint_position_controller 
+                                         l_knee_joint_position_controller 
+                                         l_ank_pitch_front_joint_position_controller 
+                                         l_ank_pitch_back_joint_position_controller 
+                                         l_ank_joint_position_controller 
+                                         l_ank_roll_joint_position_controller 
+                                         r_hip_yaw_joint_position_controller 
+                                         r_hip_roll_joint_position_controller 
+                                         r_hip_pitch_front_joint_position_controller 
+                                         r_hip_pitch_back_joint_position_controller 
+                                         r_knee_joint_position_controller 
+                                         r_ank_pitch_front_joint_position_controller 
+                                         r_ank_pitch_back_joint_position_controller 
+                                         r_ank_joint_position_controller 
+                                         r_ank_roll_joint_position_controller
+                                         l_sho_roll_joint_position_controller 
+                                         l_sho_pitch_joint_position_controller 
+                                         l_el_joint_position_controller 
+                                         l_el_yaw_joint_position_controller 
+                                         r_sho_roll_joint_position_controller 
+                                         r_sho_pitch_joint_position_controller 
+                                         r_el_joint_position_controller 
+                                         r_el_yaw_joint_position_controller 
+                                         head_pan_joint_position_controller 
+                                         head_tilt_joint_position_controller 
+                                         joint_state_controller"/>
+
+  <!-- convert joint states to TF transforms for rviz, etc -->
+<!--   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+        respawn="false" output="screen">
+    <remap from="/joint_states" to="/humanoid/joint_states" />
+  </node> -->
+
+</launch>

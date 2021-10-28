@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/indra/ros/humanoid_adult_size/devel/setup.sh

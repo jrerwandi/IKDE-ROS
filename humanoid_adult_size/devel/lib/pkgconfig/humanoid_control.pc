@@ -1,0 +1,8 @@
+prefix=/home/indra/ros/humanoid_adult_size/devel
+
+Name: humanoid_control
+Description: Description of humanoid_control
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

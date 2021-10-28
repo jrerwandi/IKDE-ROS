@@ -1,0 +1,2 @@
+humanoid_description:humanoid_gazebo:roboticsgroup_gazebo_plugins
+-DCATKIN_DEVEL_PREFIX=/home/indra/ros/humanoid_adult_size/devel -DCMAKE_INSTALL_PREFIX=/home/indra/ros/humanoid_adult_size/install -G Unix Makefiles
