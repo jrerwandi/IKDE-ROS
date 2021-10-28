@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<robot name="humanoid" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<xacro:include filename="$(find humanoid_adult_size_description)/urdf/humanoid.gazebo.xacro" />
+<xacro:include filename="$(find humanoid_adult_size_description)/urdf/humanoid.transmisi.xacro" />
+    <link name="base_link">
+        <visual>
+            <origin xyz="0.000 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://humanoid_adult_size_description/meshes/visual/base.STL"/>
+            </geometry>    
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <mesh filename="package://humanoid_adult_size_description/meshes/collision/base_col.STL"/>
+                </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-0.004 0.000 0.201"/>
+            <mass value="5.292"/>
+            <inertia ixx="0.119892" ixy="-0.000007" ixz="-0.001838" 
+                     iyy="0.072071" iyz="-0.000003" 
+                     izz="0.074976"/>
+        </inertial>
+    </link>
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--|||||||||||||||||||||||||||||||||||     SHOULDER          |||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+    <joint name="Lshoulder_joint" type="revolute">
+        <parent link="base_link"/>
+        <child link="Lshoulder_link"/>
+        <origin xyz="0.000034 0.177209 0.276882" rpy="0.0 0.0 0.0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="-3.14" upper="1.04719755" effort="10" velocity="3.14"/> 
+    </joint> 
+    <link name="Lshoulder_link">
+        <visual>
+            <origin xyz="0.000 0.000 0.000" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://humanoid_adult_size_description/meshes/visual/Lshoulder.STL"/>
+            </geometry>    
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <mesh filename="package://humanoid_adult_size_description/meshes/collision/Lshoulder_col.STL"/>
+                </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0.000018 0.025567 -0.008154"/>
+            <mass value="0.124321"/>
+            <inertia ixx="0.000142" ixy="0.000000" ixz="0.000000" 
+                     iyy="0.000143" iyz="-0.000024" 
+                     izz="0.000138"/>
+        </inertial>
+    </link>
+    <!-- <xacro:insert_transmission name="Lshoulder_joint" /> 
+    <xacro:insert_transmission name="Lshoulder_joint" />  -->
+
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--|||||||||||||||||||||||||||||||||||        ARM           |||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+    <joint name="Larm_joint" type="revolute">
+        <parent link="Lshoulder_link"/>
+        <child link="Larm_link"/>
+        <origin xyz="0.02506 0.049194 -0.026717" rpy="0.0 0.0 0.0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-0.17453293" upper="1.57079633" effort="10" velocity="3.14"/> 
+    </joint> 
+    <link name="Larm_link">
+        <visual>
+            <origin xyz="0.000 0.000 0.000" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://humanoid_adult_size_description/meshes/visual/Larm.STL"/>
+            </geometry>    
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <mesh filename="package://humanoid_adult_size_description/meshes/collision/Larm_col.STL"/>
+                </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-0.024138 0.000000 -0.055244"/>
+            <mass value="0.536868"/>
+            <inertia ixx="0.002466" ixy="0.000000" ixz="0.000038" 
+                     iyy="0.002420" iyz="0.000000" 
+                     izz="0.000298"/>
+        </inertial>
+    </link>
+    <!-- <xacro:insert_transmission name="Lshoulder_joint" /> 
+    <xacro:insert_transmission name="Lshoulder_joint" />  -->
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--|||||||||||||||||||||||||||||||||||     ELBOW          |||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+    <joint name="Lelbow_joint" type="revolute">
+        <parent link="Larm_link"/>
+        <child link="Lelbow_link"/>
+        <origin xyz="-0.0079 -0.0245 -0.207906" rpy="0.0 0.0 0.0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="-2.7925268" upper="0" effort="10" velocity="3.14"/> 
+    </joint> 
+    <link name="Lelbow_link">
+        <visual>
+            <origin xyz="0.000 0.000 0.000" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://humanoid_adult_size_description/meshes/visual/Lelbow.STL"/>
+            </geometry>    
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <mesh filename="package://humanoid_adult_size_description/meshes/collision/Lelbow_col.STL"/>
+                </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-0.023724 0.024235 -0.031395"/>
+            <mass value="0.587791"/>
+            <inertia ixx="0.000608" ixy="-0.000002" ixz="0.000110" 
+                     iyy="0.000697" iyz="-0.000005" 
+                     izz="0.000322"/>
+        </inertial>
+    </link>
+    <!-- <xacro:insert_transmission name="Lelbow_joint" /> 
+    <xacro:insert_transmission name="Lelbow_joint" />  -->
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--|||||||||||||||||||||||||||||||||||       HAND          |||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+    <joint name="Lhand_joint" type="revolute">
+        <parent link="Lelbow_link"/>
+        <child link="Lhand_link"/>
+        <origin xyz="-0.0155 0.0245 -0.078296" rpy="0.0 0.0 0.0"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-3.14" upper="3.14" effort="10" velocity="3.14"/> 
+    </joint> 
+    <link name="Lhand_link">
+        <visual>
+            <origin xyz="0.000 0.000 0.000" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://humanoid_adult_size_description/meshes/visual/Lhand.STL"/>
+            </geometry>    
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <mesh filename="package://humanoid_adult_size_description/meshes/collision/Lhand_col.STL"/>
+                </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-0.000418 0.000039 -0.164104"/>
+            <mass value="0.772383"/>
+            <inertia ixx="0.003601" ixy="-0.000000" ixz="0.000011" 
+                     iyy="0.003625" iyz="0.000001" 
+                     izz="0.000636"/>
+        </inertial>
+    </link>
+    <!-- <xacro:insert_transmission name="Lhand_joint" /> 
+    <xacro:insert_transmission name="Lhand_joint" />  -->
+
+</robot>

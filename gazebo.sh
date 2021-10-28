@@ -1,0 +1,1 @@
+roslaunch humanoid_gazebo humanoid_gazebo.launch

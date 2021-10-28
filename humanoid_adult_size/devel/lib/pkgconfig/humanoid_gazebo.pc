@@ -1,8 +1,0 @@
-prefix=/home/indra/ros/humanoid_adult_size/devel
-
-Name: humanoid_gazebo
-Description: Description of humanoid_gazebo
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
