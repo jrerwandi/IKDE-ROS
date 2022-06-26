@@ -1,5 +1,5 @@
 # IKDE-ROS
-inverse kinematics 4 DOF using the differential Evolution optimization method and and simulated on rviz and gazebo.
+Inverse kinematics 4 DOF using the differential Evolution optimization method and simulated on rviz and gazebo.
 
 ![This is an image](https://github.com/jrerwandi/IKDE-ROS/blob/main/jre8.png)
 ![This is an image](https://github.com/jrerwandi/IKDE-ROS/blob/main/jre9.png)
